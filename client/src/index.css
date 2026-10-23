@@ -1,0 +1,104 @@
+/**
+ * MindMesh - Global Theme & Variables
+ * Aesthetic: Japanese Cyberpunk + Futuristic AI Knowledge Hub
+ */
+
+:root {
+  /* Midnight Navy Backgrounds */
+  --bg-core: #090d16;
+  --bg-surface: #0e1424;
+  --bg-card: #131b2e;
+  --bg-card-hover: #17223b;
+  --bg-input: #0b101d;
+
+  /* Accents */
+  --accent-pink: #ff2a85;
+  --accent-pink-glow: rgba(255, 42, 133, 0.25);
+  --accent-pink-subtle: rgba(255, 42, 133, 0.12);
+  --accent-lavender: #c084fc;
+  --accent-lavender-subtle: rgba(192, 132, 252, 0.12);
+  --accent-sakura: #ffb7c5;
+  --accent-cyan: #00f0ff;
+  --accent-cyan-subtle: rgba(0, 240, 255, 0.12);
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-focus: rgba(255, 42, 133, 0.5);
+  --border-card: rgba(148, 163, 184, 0.12);
+
+  /* Typography */
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+  /* Layout dimensions */
+  --sidebar-width: 260px;
+  --header-height: 70px;
+
+  /* Global settings */
+  color-scheme: dark;
+  font-family: var(--font-sans);
+  background-color: var(--bg-core);
+  color: var(--text-primary);
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-core);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+/* Remove default Vite root constraints so the full-screen layout works properly */
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base button resets */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-core);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-pink);
+}
