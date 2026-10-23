@@ -1,7 +1,7 @@
 # MindMesh 
 ### Interactive Knowledge Management & Cybernetic Visualization Platform
 
-**MindMesh** is a full-stack MERN application that enables users to capture, organize, and visually explore interconnected thoughts, research, and documentation through an interactive **Force-Directed Knowledge Graph**. Styled with a Japanese-inspired cyberpunk aesthetic (midnight navy `#080c16`, neon fuchsia `#ff2a85`, cyber cyan `#00f0ff`, and lavender accents), MindMesh pairs a high-performance React 19 frontend with a robust, multi-tenant Express and MongoDB Atlas backend.
+**MindMesh** is a full-stack MERN application that enables users to capture, organize, and visually explore interconnected thoughts, research, and documentation through an interactive **Force-Directed Knowledge Graph**. MindMesh pairs a high-performance React 19 frontend with a robust, multi-tenant Express and MongoDB Atlas backend.
 
 ---
 
