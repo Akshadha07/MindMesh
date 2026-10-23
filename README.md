@@ -1,13 +1,13 @@
-# MindMesh 🌸⚡
+# MindMesh 
 ### Interactive Knowledge Management & Cybernetic Visualization Platform
 
 **MindMesh** is a full-stack MERN application that enables users to capture, organize, and visually explore interconnected thoughts, research, and documentation through an interactive **Force-Directed Knowledge Graph**. Styled with a Japanese-inspired cyberpunk aesthetic (midnight navy `#080c16`, neon fuchsia `#ff2a85`, cyber cyan `#00f0ff`, and lavender accents), MindMesh pairs a high-performance React 19 frontend with a robust, multi-tenant Express and MongoDB Atlas backend.
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
-1. **Japanese Cyberpunk User Experience**:
+1. **Interactive User Experience**:
    - Translucent obsidian glass cards with glowing border animations.
    - Floating sakura petal motifs, neon badges, and high-contrast accessible typography.
    - Fully responsive design across desktop, tablet, and mobile viewport sizes.
@@ -17,7 +17,7 @@
    - Real-time client-side search across titles, descriptions, categories, and tags.
    - Immediate optimistic UI updates paired with persistent MongoDB Atlas synchronization.
 
-3. **Interactive Force-Directed Knowledge Graph (Phase 6)**:
+3. **Interactive Force-Directed Knowledge Graph **:
    - **Zero-Dependency HTML5 Canvas Engine**: 60 FPS physics simulation using Coulomb repulsion, Hooke springs, gravity centering, and kinetic damping without heavy external libraries.
    - **Intelligent Edge Generation**:
      - **Shared Tags**: Solid neon-fuchsia edges (`#ff2a85`) with strong attraction representing deep topical synergy.
@@ -25,19 +25,19 @@
      - **Disjoint Nodes**: Independent nodes safely spaced apart via repulsion forces.
    - **Interactive Graph Controls**: Pan, zoom, node drag-and-pin, fit-to-screen, search query filtering, and a slide-out **Node Inspector Drawer** with neighbor traversal.
 
-4. **Multi-Tenant Security & Authentication (Phase 7)**:
+4. **Multi-Tenant Security & Authentication **:
    - Secure registration and login using `bcryptjs` (salt rounds = 10) and JSON Web Tokens (JWT).
    - Strict multi-tenant data isolation: all queries are hard-scoped to the authenticated user ID (`{ _id: noteId, user: req.user._id }`).
    - Secure dual-token transport: HTTP-only cookie (`token`) with fallback support for standard `Authorization: Bearer <token>` headers.
    - Automatic onboarding seed notes for newly registered architects.
 
-5. **Production Readiness & Automated Testing (Phase 8)**:
+5. **Production Readiness & Automated Testing **:
    - Automated end-to-end integration test suite verifying health, authentication, CRUD, multi-tenant cross-user isolation, and graph algorithms (21/21 passing assertions).
    - Production Vite frontend build tested with 0 compilation errors.
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```text
 ┌─────────────────────────────────────────────────────────────┐
@@ -66,7 +66,7 @@
 
 ---
 
-## 📁 Project Directory Structure
+##  Project Directory Structure
 
 ```text
 mernstack/
@@ -118,7 +118,7 @@ mernstack/
 
 ---
 
-## ⚙️ Prerequisites & Setup
+##  Prerequisites & Setup
 
 ### Requirements
 - **Node.js**: v18.0.0 or later (verified on v22+)
@@ -167,7 +167,7 @@ mernstack/
 
 ---
 
-## 🚀 Running the Application Locally
+##  Running the Application Locally
 
 ### 1. Launch Backend API Server
 In the `server/` terminal:
@@ -188,9 +188,9 @@ npm run dev
 
 ---
 
-## 📡 API Specification & Endpoints
+##  API Specification & Endpoints
 
-### 🩺 Health & Diagnostic
+###  Health & Diagnostic
 | Method | Endpoint | Auth Required | Description |
 |---|---|---|---|
 | `GET` | `/api/health` | No | Server heartbeat and database connectivity check. |
@@ -207,7 +207,7 @@ npm run dev
 
 ---
 
-### 🔐 Authentication (`/api/auth`)
+###  Authentication (`/api/auth`)
 All authenticated responses set an HTTP-only `token` cookie and return user profile data.
 
 #### 1. Register User
@@ -252,7 +252,7 @@ All authenticated responses set an HTTP-only `token` cookie and return user prof
 
 ---
 
-### 📝 Notes CRUD (`/api/notes`)
+###  Notes CRUD (`/api/notes`)
 *All notes endpoints require active authentication (`requireAuth` middleware). All queries are scoped strictly to `req.user._id`.*
 
 #### 1. List All Notes
@@ -308,7 +308,7 @@ All authenticated responses set an HTTP-only `token` cookie and return user prof
 
 ---
 
-## 🧠 Knowledge Graph: Physics & Relationships
+##  Knowledge Graph: Physics & Relationships
 
 The interactive Knowledge Graph is rendered directly on an HTML5 `<canvas>` using a custom physics simulation loop (`requestAnimationFrame` at 60 FPS):
 
@@ -349,7 +349,7 @@ The interactive Knowledge Graph is rendered directly on an HTML5 `<canvas>` usin
 
 ---
 
-## 🧪 Automated Testing & Verification
+##  Automated Testing & Verification
 
 MindMesh includes an automated end-to-end test suite (`server/test-auth-crud-graph.mjs`) that spins up a test server, makes real HTTP requests, and verifies database persistence and multi-tenant isolation.
 
@@ -381,7 +381,7 @@ npm --prefix client run build
 
 ---
 
-## 🌐 Deployment Readiness Guide
+##  Deployment Readiness Guide
 
 ### 1. MongoDB Atlas Configuration
 - Whitelist server IP addresses in **Network Access** (`0.0.0.0/0` for dynamic cloud hosts like Render or Railway).
@@ -417,22 +417,3 @@ npm --prefix client run build
   ```
 
 ---
-
-## 🎓 University Viva Presentation Talking Points
-
-When presenting MindMesh to faculty examiners or industry evaluators, highlight these core engineering decisions:
-
-1. **Decoupled Architecture with Single Responsibility**:
-   - The frontend and backend are completely decoupled. The frontend handles state, animations, and 60 FPS canvas physics; the backend handles authentication, business logic, validation, and data persistence.
-
-2. **Security-First Multi-Tenancy**:
-   - Authentication is backed by industry-standard `bcryptjs` hashing and signed JWTs.
-   - We implemented **strict query scoping**: every database mutation and query requires `{ _id: noteId, user: req.user._id }`. Even if an attacker guesses another user's note ObjectId, the database returns a 404, preventing information leakage.
-
-3. **Zero-Dependency 60 FPS HTML5 Canvas Graph**:
-   - Rather than bundling heavy 3rd-party graph libraries (which break with React 19 concurrent rendering), we built a native HTML5 Canvas force-directed simulation.
-   - Uses classical Newtonian physics (Coulomb repulsion, Hooke springs, velocity damping) with custom cyberpunk glowing edges and real-time interactive drag physics.
-
-4. **Resilient Database Engineering**:
-   - Built with Mongoose 8+ schemas featuring compound indexes (`{ user: 1, createdAt: -1 }`) for fast note querying.
-   - Implemented DNS SRV resolver fallbacks to ensure connection stability across corporate and university network firewalls.
